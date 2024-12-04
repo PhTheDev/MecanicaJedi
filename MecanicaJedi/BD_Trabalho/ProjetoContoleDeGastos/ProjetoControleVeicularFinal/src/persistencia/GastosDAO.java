@@ -7,8 +7,6 @@ package persistencia;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import modelos.Gastos;
-import modelos.IGastosCRUD;
-import modelos.IServicosCRUD;
 import modelos.Servicos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

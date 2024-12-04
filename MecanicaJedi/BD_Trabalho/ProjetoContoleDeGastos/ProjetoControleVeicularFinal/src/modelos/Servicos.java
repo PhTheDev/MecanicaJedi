@@ -10,23 +10,29 @@ package modelos;
  */
 public class Servicos {
   //Atributos
-  private int identificador = 0;
-  private String descricao = "";
+  private int idServico = 0;
+  private String descricao = null;
+  private double valor=0;
   //Metodos
 
   public Servicos() {
   }
-  public Servicos(int identificador, String descricao) {
-    this.identificador = identificador;
+  public Servicos(int identificador, String descricao, double valor) throws Exception{
+    if(idServico<=0) throw new Exception("Falha ao definir idServico");
+    if(descricao==null)throw new Exception("Insira uma descrição de serviço");
+    if(valor<=0)throw new Exception("Insira um valor valido para o serviço");
+      
+    this.idServico = identificador;
     this.descricao = descricao;
+    this.valor=valor;
   }
 
-  public int getIdentificador() {
-    return identificador;
+  public int getIdServico() {
+    return idServico;
   }
 
-  public void setIdentificador(int identificador) {
-    this.identificador = identificador;
+  public void setIdServico(int idServico) {
+    this.idServico = idServico;
   }
 
   public String getDescricao() {
@@ -39,8 +45,17 @@ public class Servicos {
 
   @Override
   public String toString() {
-    return identificador + "-" + descricao;
+    return idServico + "-" + descricao;
   }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+  
   
   
 }

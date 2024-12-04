@@ -10,32 +10,40 @@ package modelos;
  */
 public class VeiculoProprietario {
   //Atributos
-  private int identificador = 0;
+  private int idProprietario = 0;
   private String placa = "";
   private String marca = "";
   private String modelo = "";
   private String nomeProprietario = "";
   private String cpf = "";
+  private Cliente cliente;
+  private Veiculo veiculo;
 
   public VeiculoProprietario() {
   }
-  public VeiculoProprietario( int identificador, String placa,
-                              String marca, String modelo,
-                              String nomeProprietario, String cpf) {
-    this.identificador = identificador;
-    this.placa = placa;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.nomeProprietario = nomeProprietario;
-    this.cpf = cpf;
+  public VeiculoProprietario(int idProprietario, Cliente cliente, Veiculo veiculo) throws Exception {
+        if (idProprietario <= 0) throw new Exception("ID do proprietário deve ser maior que zero.");
+        if (cliente == null) throw new Exception("Cliente não pode ser nulo.");
+        if (veiculo == null) throw new Exception("Veículo não pode ser nulo.");
+
+        this.idProprietario = idProprietario;
+        this.cliente = cliente;
+        this.veiculo = veiculo;
+    }
+  public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+    
+  public int getIdProprietario() {
+    return idProprietario;
   }
 
-  public int getIdentificador() {
-    return identificador;
-  }
-
-  public void setIdentificador(int identificador) {
-    this.identificador = identificador;
+  public void setIdProprietario(int idProprietario) {
+    this.idProprietario = idProprietario;
   }
 
   public String getPlaca() {
@@ -80,7 +88,7 @@ public class VeiculoProprietario {
 
   @Override
   public String toString() {
-    return identificador + "-" + placa + " => " + modelo + " => " + nomeProprietario;
+    return idProprietario + "-" + placa + " => " + modelo + " => " + nomeProprietario;
   }
   
   

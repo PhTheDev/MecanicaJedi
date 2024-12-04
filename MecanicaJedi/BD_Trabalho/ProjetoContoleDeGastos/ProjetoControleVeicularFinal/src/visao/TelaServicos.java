@@ -4,7 +4,7 @@
  */
 package visao;
 import modelos.Servicos;
-import modelos.IServicosCRUD;
+import persistencia.IServicosCRUD;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -45,7 +45,7 @@ public class TelaServicos extends javax.swing.JFrame {
     for(int pos = 0; pos < listaDeServicos.size(); pos++){
       Servicos objServico = listaDeServicos.get(pos);
       String[] linha = new String[2];
-      linha[0]= objServico.getIdentificador() + "";
+      linha[0]= objServico.getIdServico() + "";
       linha[1]= objServico.getDescricao();
       model.addRow(linha);
     }  

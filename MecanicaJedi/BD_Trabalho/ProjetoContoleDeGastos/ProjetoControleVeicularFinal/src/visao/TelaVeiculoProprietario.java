@@ -9,7 +9,7 @@ import modelos.VeiculoProprietario;
 import ferramentas.ConexaoBD;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import modelos.IVeiculoProprietarioCRUD;
+import persistencia.IVeiculoProprietarioCRUD;
 import modelos.Servicos;
 import persistencia.ServicosDAO;
 import persistencia.VeiculosProprietariosDAO;
@@ -52,7 +52,7 @@ public class TelaVeiculoProprietario extends javax.swing.JFrame {
     for(int pos = 0; pos < listaDeVeiculosProprietarios.size(); pos++){
       VeiculoProprietario objVeiculoProprietario = listaDeVeiculosProprietarios.get(pos);
       String[] linha = new String[6];
-      linha[0] = objVeiculoProprietario.getIdentificador() + "";
+      linha[0] = objVeiculoProprietario.getIdProprietario() + "";
       linha[1] = objVeiculoProprietario.getPlaca();
       linha[2] = objVeiculoProprietario.getMarca();
       linha[3] = objVeiculoProprietario.getModelo();

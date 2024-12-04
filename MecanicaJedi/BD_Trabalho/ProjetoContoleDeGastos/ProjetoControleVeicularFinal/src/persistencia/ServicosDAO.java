@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package persistencia;
-import modelos.IServicosCRUD;
 import modelos.Servicos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +32,7 @@ public class ServicosDAO implements IServicosCRUD{
             ResultSet rs = statement.executeQuery(sql);
             while(rs.next()) {
                 Servicos objServicos = new Servicos();
-                objServicos.setIdentificador(rs.getInt("idserv"));
+                objServicos.setIdServico(rs.getInt("idserv"));
                 objServicos.setDescricao(rs.getString("descricao"));
                 listaDeServicos.add(objServicos);
             }
@@ -66,7 +65,7 @@ public class ServicosDAO implements IServicosCRUD{
               + "where idserv = ?";
       PreparedStatement preparedStatement = conexao.prepareStatement(sql);
       preparedStatement.setString(1, objServico.getDescricao());
-      preparedStatement.setInt(2, objServico.getIdentificador());
+      preparedStatement.setInt(2, objServico.getIdServico());
       preparedStatement.executeUpdate();
     } catch (SQLException erro) {
         //Erro do comando SQL - chave, coluna, nome da tabela, ...

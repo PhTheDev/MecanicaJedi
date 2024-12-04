@@ -4,7 +4,6 @@
  */
 package persistencia;
 import java.util.ArrayList;
-import modelos.IVeiculoProprietarioCRUD;
 import modelos.VeiculoProprietario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +34,7 @@ public class VeiculosProprietariosDAO implements IVeiculoProprietarioCRUD{
             ResultSet rs = statement.executeQuery(sql);
             while(rs.next()) {
                 VeiculoProprietario objVeiculoProprietario = new VeiculoProprietario();
-                objVeiculoProprietario.setIdentificador(rs.getInt("idveicprop"));
+                objVeiculoProprietario.setIdProprietario(rs.getInt("idveicprop"));
                 objVeiculoProprietario.setPlaca(rs.getString("placa"));
                 objVeiculoProprietario.setMarca(rs.getString("marca"));
                 objVeiculoProprietario.setModelo(rs.getString("modelo"));
@@ -81,7 +80,7 @@ try {
       preparedStatement.setString(3, objVeiculosProprietarios.getModelo());
       preparedStatement.setString(4, objVeiculosProprietarios.getNomeProprietario());
       preparedStatement.setString(5, objVeiculosProprietarios.getCpf());
-      preparedStatement.setInt(6, objVeiculosProprietarios.getIdentificador());
+      preparedStatement.setInt(6, objVeiculosProprietarios.getIdProprietario());
       preparedStatement.executeUpdate();
     } catch (SQLException erro) {
         //Erro do comando SQL - chave, coluna, nome da tabela, ...
